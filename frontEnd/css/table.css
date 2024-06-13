@@ -1,0 +1,144 @@
+.table-section {
+	display: flex;
+	flex-direction: column;
+	background-color: #cac6c6;
+	margin-left: 28%;
+	margin-top: 7.8rem;
+	max-height: 77vh;
+	width: 69%;
+	z-index: -10;
+}
+
+.col-25 {
+	display: inline-block;
+	width: 25%;
+}
+
+.col-50 {
+	display: inline-block;
+	width: 50%;
+}
+
+.table-header {
+	background-image: linear-gradient(
+		to Bottom,
+		rgba(0, 0, 0, 0.2),
+		rgba(0, 0, 0, 0)
+	);
+	background-color: var(--first-color);
+	color: white;
+	padding-block: 0.25rem;
+	padding-left: 1rem;
+	font-weight: var(--font-semi-bold);
+	letter-spacing: 0.225rem;
+}
+
+.department-table {
+	margin: 1rem 1rem 0rem 1rem;
+	border: 1px solid black;
+	border-bottom: 0;
+	padding: 4px;
+	display: grid;
+	overflow: auto;
+}
+
+.form-container {
+	padding-block: 1rem;
+}
+
+.code_selector {
+	margin-bottom: 0.6rem;
+}
+
+.code {
+	background-color: rgb(180, 180, 235);
+}
+
+.code,
+.description {
+	box-shadow: 0.1rem 0.1rem 4px hsla(0, 0%, 10%, 0.7) inset;
+	padding: 0.2rem;
+	font-size: 0.9rem;
+}
+
+.action-container {
+	display: flex;
+	justify-self: center;
+	column-gap: 2rem;
+}
+
+.action-container a {
+	text-decoration: none;
+	color: black;
+	background-color: rgb(235, 230, 230);
+	padding: 0.2rem 1rem;
+	border-radius: 4px;
+	border: 1px solid black;
+}
+
+.table-container {
+	margin-top: 1rem;
+	display: flex;
+	flex-direction: column;
+	overflow-y: hidden;
+}
+
+.table-wrapper {
+	overflow-y: auto;
+	/* flex: 1; */
+}
+
+.description_container p {
+	margin: 0;
+}
+
+/* .error-info{
+    margin-left: .9rem;
+} */
+.error-info.success{
+    color: green;
+}
+.error-info.fail{
+    color: red;
+}
+.error-info span{
+    font-weight: 700;
+}
+
+.table-title {
+	border: 1px solid #3f3e3e;
+	text-align: center;
+}
+
+.department_table {
+	margin-bottom: 1rem;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+thead {
+	background-color: #cac6c6;
+	position: sticky;
+	top: 0;
+	z-index: 20;
+	border: none;
+}
+
+.department_table th {
+	border: 1px solid #3f3e3e;
+	border-top: none;
+	padding: 6px;
+	text-align: start;
+}
+.department_table td {
+	border: 1px solid #3f3e3e;
+	padding: 6px;
+	text-align: start;
+}
+
+.department_table td {
+	background-color: white;
+}

@@ -1,0 +1,49 @@
+header{
+    position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+    /* height: var(--header-height); */
+}
+
+.company_detail{
+    background-color: var(--first-color);
+    display: flex;
+    align-items: center;
+    column-gap: 2.3rem;
+    padding-inline: 1.5rem;
+    padding-block: .8rem;
+    color: var(--title-color);
+    font-size: var(--largest-font-size);
+}
+.company_name{
+    position: relative;
+    cursor: pointer;
+}
+
+.company_name span{
+    color: yellow;
+}
+
+.software_version {
+    position: absolute;
+    bottom: -.1rem;
+    right: -3.5rem;
+    font-size: 14px;
+}
+
+.customer_details{
+    background-color: var(--first-color-lighter);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text-color);
+    padding: .5rem 1.5rem;
+    font-size: var(--small-font-size);
+    font-weight: var(--font-bold);
+}
+
+.customer_details p{
+    margin-bottom: 0;
+}
+

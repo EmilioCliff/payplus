@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+			crossorigin="anonymous"
+		/>
+		<link
+			href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="./css/general.css" />
+		<link rel="stylesheet" href="./css/nav.css" />
+		<link rel="stylesheet" href="./css/side-bar.css" />
+		<link rel="stylesheet" href="./css/table.css" />
+	</head>
+	<body>
+		<header>
+			<div class="company_detail">
+				<div class="company_logo">
+					<i class="ri-home-wifi-fill"></i>
+				</div>
+				<div class="company_name">
+					LainiSoft <span>PayPLUS</span>
+					<span class="software_version">ver 12.0</span>
+				</div>
+			</div>
+			<div class="customer_details">
+				<p>Payroll Month: May</p>
+				<p id="time-display"></p>
+				<p>Login No: 507</p>
+			</div>
+		</header>
+		<section class="side-bar">
+			<div class="side-bar__nav">
+				<div class="side-bar__img">
+					<img
+						class="payroll__image"
+						src="./images/payroll-image.jpeg"
+						alt="payroll-image"
+					/>
+					<p class="software-title">Payroll System</p>
+				</div>
+				<div class="scroll-container">
+					<!-- <div class="scroll-content" id="scrollContent"> -->
+					<ul class="payroll-actions scroll-content" id="scrollContent">
+						<li class="action" data-action-name="setup-action">
+							<a
+								class="dropdown-link"
+								href="#setup-action"
+								role="button"
+								data-bs-toggle="collapse"
+								aria-expanded="false"
+								aria-controls="setup-action"
+							>
+								<i class="ri-arrow-right-s-line chevron_right"></i>
+								Setup
+							</a>
+						</li>
+						<ul class="action__dropdown collapse" id="setup-action">
+							<li class="subaction">Company Details</li>
+							<li class="subaction">Departments Setup</li>
+							<li class="subaction">Section Setup</li>
+							<li class="subaction">Job Titles</li>
+							<li class="subaction">Grades Setup</li>
+							<li class="subaction">County Setup</li>
+							<li class="subaction">Ethnic Groups</li>
+							<li class="subaction" data-action-name="setup-constants-action">
+								<a
+									href="#setup-constants-action"
+									role="button"
+									data-bs-toggle="collapse"
+									aria-expanded="false"
+									aria-controls="setup-action"
+								>
+									<i class="ri-arrow-right-s-line"></i>
+									Constants
+								</a>
+							</li>
+							<ul class="action__dropdown collapse" id="setup-constants-action">
+								<li class="sub-subaction">Monthly Constants</li>
+								<li class="sub-subaction">PAYE Rates</li>
+								<li class="sub-subaction">NHIF Rates</li>
+							</ul>
+							<li class="subaction">Banks</li>
+							<li class="subaction">Pensions</li>
+							<li class="subaction">Benefits</li>
+							<li class="subaction">ED Setup</li>
+						</ul>
+						<li class="action" data-action-name="personell-data-action">
+							<a
+								class="dropdown-link"
+								href="#personell-data-action"
+								role="button"
+								data-bs-toggle="collapse"
+								aria-expanded="false"
+								aria-controls="setup-action"
+							>
+								<i class="ri-arrow-right-s-line chevron_right"></i>
+								Personell Data
+							</a>
+						</li>
+						<ul class="action__dropdown collapse" id="personell-data-action">
+							<li class="subaction">Employee Details</li>
+							<li class="subaction">Employee Payroll Details</li>
+						</ul>
+						<li class="action" data-action-name="entries-action">
+							<a
+								class="dropdown-link"
+								href="#entries-action"
+								role="button"
+								data-bs-toggle="collapse"
+								aria-expanded="false"
+								aria-controls="setup-action"
+							>
+								<i class="ri-arrow-right-s-line chevron_right"></i>
+								Entries
+							</a>
+						</li>
+						<ul class="action__dropdown collapse" id="entries-action">
+							<li class="subaction">Constant Entries</li>
+							<li class="subaction">Non Constant Entries</li>
+							<li class="subaction">Non Cash Benefits</li>
+							<li class="subaction">Batch Entries</li>
+							<li class="subaction">Import Payroll Data</li>
+							<li class="subaction">Direct Tax Entry</li>
+							<li class="subaction">PAYE Calculator</li>
+						</ul>
+						<li class="action" data-action-name="routines-action">
+							<a
+								class="dropdown-link"
+								href="#routines-action"
+								role="button"
+								data-bs-toggle="collapse"
+								aria-expanded="false"
+								aria-controls="setup-action"
+							>
+								<i class="ri-arrow-right-s-line chevron_right"></i>
+								Routines
+							</a>
+						</li>
+						<ul class="action__dropdown collapse" id="routines-action">
+							<li class="subaction">Process Payroll</li>
+							<li class="subaction">Close Month</li>
+							<li class="subaction">Export PAYE/Housing Levy</li>
+							<li class="subaction">Backup Database</li>
+							<li
+								class="subaction"
+								data-action-name="routines-export-to-bank-file-action"
+							>
+								<a
+									class="dropdown-link"
+									href="#routines-export-to-bank-file-action"
+									role="button"
+									data-bs-toggle="collapse"
+									aria-expanded="false"
+									aria-controls="setup-action"
+								>
+									<i class="ri-arrow-right-s-line"></i>
+									Export to Bank File
+								</a>
+							</li>
+							<ul
+								class="action__dropdown collapse"
+								id="routines-export-to-bank-file-action"
+							>
+								<li class="sub-subaction">Cooperative Bank</li>
+								<li class="sub-subaction">KCB Bank</li>
+								<li class="sub-subaction">NCBA Bank</li>
+							</ul>
+							<li class="subaction">Export NSSF File</li>
+							<li class="subaction">Export NHIF File</li>
+							<li class="subaction">Export HELP</li>
+						</ul>
+						<li class="action" data-action-name="security-action">
+							<a
+								class="dropdown-link"
+								href="#security-action"
+								role="button"
+								data-bs-toggle="collapse"
+								aria-expanded="false"
+								aria-controls="setup-action"
+							>
+								<i class="ri-arrow-right-s-line chevron_right"></i>
+								Security
+							</a>
+						</li>
+						<ul class="action__dropdown collapse" id="security-action">
+							<li class="subaction">Security Categories</li>
+							<li class="subaction">Users</li>
+							<li class="subaction">Change Password</li>
+							<li class="subaction">Permissions</li>
+						</ul>
+						<li class="action" data-action-name="reports-action">
+							<a
+								class="dropdown-link"
+								href="#reports-action"
+								role="button"
+								data-bs-toggle="collapse"
+								aria-expanded="false"
+								aria-controls="setup-action"
+							>
+								<i class="ri-arrow-right-s-line chevron_right"></i>
+								Reports
+							</a>
+						</li>
+						<ul class="action__dropdown collapse" id="reports-action">
+							<li class="subaction">Select Report</li>
+							<li class="subaction">Add Report</li>
+						</ul>
+						<li class="action" data-action-name="help-action">
+							<a
+								class="dropdown-link"
+								href="#help-action"
+								role="button"
+								data-bs-toggle="collapse"
+								aria-expanded="false"
+								aria-controls="setup-action"
+							>
+								<i class="ri-arrow-right-s-line chevron_right"></i>
+								Help
+							</a>
+						</li>
+						<ul class="action__dropdown collapse" id="help-action">
+							<li class="subaction">Help Contents</li>
+							<li class="subaction">About PayPLUS</li>
+						</ul>
+						<li class="action">
+							<a class="dropdown-link exit-action"> Exit </a>
+						</li>
+					</ul>
+					<!-- </div> -->
+					<div class="custom-scrollbar">
+						<div class="custom-scrollbar-thumb" id="scrollThumb"></div>
+					</div>
+				</div>
+			</div>
+			<div class="side-bar__user">
+				<div class="user__image">
+					<img class="user-image" src="./images/user-image2.png" alt="" />
+				</div>
+				<p>Admins</p>
+				<i class="ri-arrow-down-s-fill user-more"></i>
+				<div class="user-tooltip">
+					<p>Profile</p>
+					<p>Sign Out</p>
+				</div>
+			</div>
+		</section>
+		<section class="table-section">
+			<div class="table-header">Department Setup</div>
+			<div class="department-table">
+				<div class="form-container">
+					<form action="#" method="POST" autocomplete="off">
+						<div class="code_selector">
+							<label class="col-25" for="code">Code</label>
+							<input
+								type="number"
+								required
+								id="code"
+								name="code"
+								class="col-25 code"
+								value=""
+							/>
+						</div>
+						<div class="description_selector">
+							<label class="col-25" for="">Description</label>
+							<input
+								type="text"
+								required
+								id="description"
+								class="col-50 description"
+								value=""
+							/>
+						</div>
+					</form>
+				</div>
+				<div class="action-container">
+					<a href="" class="action-btn" data-js-action="add">ADD</a>
+					<a href="" class="action-btn" data-js-action="edit">EDIT</a>
+					<a href="" class="action-btn" data-js-action="save">SAVE</a>
+					<a href="" class="action-btn" data-js-action="delete">DELETE</a>
+				</div>
+				<div class="table-container">
+					<div class="description_container">
+						<p class="error-info"></p>
+						<p class="table-title">Click on Record To Select</p>
+					</div>
+					<div class="table-wrapper">
+						<table class="department_table">
+							<thead>
+								<!-- <tr> -->
+								<th></th>
+								<th>Code</th>
+								<th>Description</th>
+								<!-- </tr> -->
+							</thead>
+							<tbody id="js-table-content">
+								<!-- ================ TABLE ROWS =========== -->
+								<!-- <tr class="js-department-list">
+									<td>
+										<i
+											class="ri-arrow-right-s-fill show-icon"
+											style="visibility: hidden"
+										></i>
+									</td>
+									<td>1</td>
+									<td>Administrator</td>
+								</tr>
+								<tr class="js-department-list">
+									<td>
+										<i
+											class="ri-arrow-right-s-fill"
+											style="visibility: hidden"
+										></i>
+									</td>
+									<td>2</td>
+									<td>Human Resource</td>
+								</tr> -->
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</section>
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+			crossorigin="anonymous"
+		></script>
+		<script src="./js/main.js"></script>
+		<script src="./js/side-bar.js"></script>
+		<script src="./js/table.js"></script>
+	</body>
+</html>
