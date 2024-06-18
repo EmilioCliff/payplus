@@ -63,11 +63,21 @@
 							</a>
 						</li>
 						<ul class="action__dropdown collapse" id="setup-action">
-							<li class="subaction">Company Details</li>
-							<li class="subaction">Departments Setup</li>
-							<li class="subaction">Section Setup</li>
-							<li class="subaction">Job Titles</li>
-							<li class="subaction">Grades Setup</li>
+							<li class="subaction" id="js-company-details-button">
+								Company Details
+							</li>
+							<li class="subaction" id="js-department-button">
+								Departments Setup
+							</li>
+							<li class="subaction" id="js-section-setup-button">
+								Section Setup
+							</li>
+							<li class="subaction" id="js-job-titles-setup-button">
+								Job Titles
+							</li>
+							<li class="subaction" id="js-grades-setup-button">
+								Grades Setup
+							</li>
 							<li class="subaction">County Setup</li>
 							<li class="subaction">Ethnic Groups</li>
 							<li class="subaction" data-action-name="setup-constants-action">
@@ -252,78 +262,88 @@
 				</div>
 			</div>
 		</section>
-		<section class="table-section">
-			<div class="table-header">Department Setup</div>
-			<div class="department-table">
-				<div class="form-container">
-					<form action="#" method="POST" autocomplete="off">
-						<div class="code_selector">
-							<label class="col-25" for="code">Code</label>
-							<input
-								type="number"
-								required
-								id="code"
-								name="code"
-								class="col-25 code"
-								value=""
-							/>
-						</div>
-						<div class="description_selector">
-							<label class="col-25" for="">Description</label>
-							<input
-								type="text"
-								required
-								id="description"
-								class="col-50 description"
-								value=""
-							/>
-						</div>
-					</form>
+		<section class="table-section" id="js-table-section">
+			<!-- ===================== TABLE SECTION ===================== -->
+			<div class="color-container">
+				<div class="table-header">
+					Department Setup
+					<i class="ri-close-large-line"></i>
 				</div>
-				<div class="action-container">
-					<a href="" class="action-btn" data-js-action="add">ADD</a>
-					<a href="" class="action-btn" data-js-action="edit">EDIT</a>
-					<a href="" class="action-btn" data-js-action="save">SAVE</a>
-					<a href="" class="action-btn" data-js-action="delete">DELETE</a>
-				</div>
-				<div class="table-container">
-					<div class="description_container">
-						<p class="error-info"></p>
-						<p class="table-title">Click on Record To Select</p>
+				<div class="table-data">
+					<div class="form-container">
+						<form action="#" method="POST" autocomplete="off">
+							<div class="mb-06">
+								<label class="col-25" for="code">Code</label>
+								<input
+									type="number"
+									required
+									id="code"
+									name="code"
+									class="col-25 code"
+									value=""
+								/>
+							</div>
+							<div class="description_selector">
+								<label class="col-25" for="">Description</label>
+								<input
+									type="text"
+									required
+									id="description"
+									class="col-50 description"
+									value=""
+								/>
+							</div>
+						</form>
 					</div>
-					<div class="table-wrapper">
-						<table class="department_table">
-							<thead>
-								<!-- <tr> -->
-								<th></th>
-								<th>Code</th>
-								<th>Description</th>
-								<!-- </tr> -->
-							</thead>
-							<tbody id="js-table-content">
-								<!-- ================ TABLE ROWS =========== -->
-								<!-- <tr class="js-department-list">
-									<td>
-										<i
-											class="ri-arrow-right-s-fill show-icon"
-											style="visibility: hidden"
-										></i>
-									</td>
-									<td>1</td>
-									<td>Administrator</td>
-								</tr>
-								<tr class="js-department-list">
-									<td>
-										<i
-											class="ri-arrow-right-s-fill"
-											style="visibility: hidden"
-										></i>
-									</td>
-									<td>2</td>
-									<td>Human Resource</td>
-								</tr> -->
-							</tbody>
-						</table>
+					<div class="action-container">
+						<a
+							href=""
+							class="action-btn"
+							id="js-action-btn"
+							data-js-action="add"
+							>ADD</a
+						>
+						<a
+							href=""
+							class="action-btn"
+							id="js-action-btn"
+							data-js-action="edit"
+							>EDIT</a
+						>
+						<a
+							href=""
+							class="action-btn"
+							id="js-action-btn"
+							data-js-action="save"
+							>SAVE</a
+						>
+						<a
+							href=""
+							class="action-btn"
+							id="js-action-btn"
+							data-js-action="delete"
+							>DELETE</a
+						>
+					</div>
+					<div class="table-container">
+						<div class="description_container">
+							<p class="error-info"></p>
+							<p class="table-title">Click on Record To Select</p>
+						</div>
+						<div class="table-wrapper">
+							<table class="department_table">
+								<thead>
+									<!-- <tr> -->
+									<th></th>
+									<th>Code</th>
+									<th>Description</th>
+									<!-- </tr> -->
+								</thead>
+								<tbody id="js-table-content">
+									<!-- ================ TABLE ROWS =========== -->
+								</tbody>
+							</table>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -335,6 +355,10 @@
 		></script>
 		<script src="./js/main.js"></script>
 		<script src="./js/side-bar.js"></script>
-		<script src="./js/table.js"></script>
+		<script src="./js/table.js" type="module"></script>
+		<!-- <script
+			src="./js/tables-setups/departments-setup.js"
+			type="module"
+		></script> -->
 	</body>
 </html>

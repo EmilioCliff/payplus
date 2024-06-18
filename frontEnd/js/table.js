@@ -1,8 +1,12 @@
+// import { tableSection } from "./tables-setups/departments-setup.js";
+
 const listDepartmentsUrl = "http://localhost:8080/departments";
 const getDepartmentUrl = "http://localhost:8080/department";
 const deleteDepartmentUrl = "http://localhost:8080/department";
 const createDepartmentUrl = "http://localhost:8080/departments";
 const updateDepartmentUrl = "http://localhost:8080/department";
+
+// let tableSection = document.getElementById("js-table-section");
 
 let departments;
 function findDepartment(code) {
@@ -13,6 +17,67 @@ function findDepartment(code) {
 	}
 }
 function populateTable() {
+	// tableSection.innerHTML = `
+	// 	 <div class="color-container">
+	//     <div class="table-header">
+	//         Department Setup
+	//         <i class="ri-close-large-line"></i>
+	//     </div>
+	// 		<div class="table-data">
+	// 			<div class="form-container">
+	// 				<form action="#" method="POST" autocomplete="off">
+	// 					<div class="mb-06">
+	// 						<label class="col-25" for="code">Code</label>
+	// 						<input
+	// 							type="number"
+	// 							required
+	// 							id="code"
+	// 							name="code"
+	// 							class="col-25 code"
+	// 							value=""
+	// 						/>
+	// 					</div>
+	// 					<div class="description_selector">
+	// 						<label class="col-25" for="">Description</label>
+	// 						<input
+	// 							type="text"
+	// 							required
+	// 							id="description"
+	// 							class="col-50 description"
+	// 							value=""
+	// 						/>
+	// 					</div>
+	// 				</form>
+	// 			</div>
+	// 			<div class="action-container">
+	// 				<a href="" class="action-btn" id="js-action-btn" data-js-action="add">ADD</a>
+	// 				<a href="" class="action-btn" id="js-action-btn" data-js-action="edit">EDIT</a>
+	// 				<a href="" class="action-btn" id="js-action-btn" data-js-action="save">SAVE</a>
+	// 				<a href="" class="action-btn" id="js-action-btn" data-js-action="delete">DELETE</a>
+	// 			</div>
+	// 			<div class="table-container">
+	// 				<div class="description_container">
+	// 					<p class="error-info"></p>
+	// 					<p class="table-title">Click on Record To Select</p>
+	// 				</div>
+	// 				<div class="table-wrapper">
+	// 					<table class="department_table">
+	// 						<thead>
+	// 							<!-- <tr> -->
+	// 							<th></th>
+	// 							<th>Code</th>
+	// 							<th>Description</th>
+	// 							<!-- </tr> -->
+	// 						</thead>
+	// 						<tbody id="js-table-content">
+	// 							<!-- ================ TABLE ROWS =========== -->
+	// 						</tbody>
+	// 					</table>
+	// 				</div>
+	// 			</div>
+	// 		</div>
+	//     </div>
+	// `;
 	departments = JSON.parse(localStorage.getItem("departments"));
 	let tbody = document.getElementById("js-table-content");
 	tbody.innerHTML = "";
@@ -44,7 +109,7 @@ function populateTable() {
 	});
 }
 
-function fetchData() {
+export function fetchData() {
 	fetch(listDepartmentsUrl)
 		.then((response) => response.json())
 		.then((data) => {
@@ -61,7 +126,7 @@ function updateForm(code, description) {
 	document.getElementById("description").value = description;
 }
 
-const actionBtns = document.querySelectorAll(".action-btn");
+const actionBtns = document.querySelectorAll("#js-action-btn");
 actionBtns.forEach((action) => {
 	action.addEventListener("click", (e) => {
 		e.preventDefault();
@@ -220,7 +285,7 @@ function saveDepartment(code, department) {
 
 function deleteDepartment(code) {
 	let deleteUrl = deleteDepartmentUrl + `/${code}`;
-	body = {
+	let body = {
 		method: "DELETE",
 		headers: {
 			"Content-Type": "application/json",
