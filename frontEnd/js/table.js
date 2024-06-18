@@ -1,3 +1,5 @@
+// Testing Github for Toro
+
 // import { tableSection } from "./tables-setups/departments-setup.js";
 
 const listDepartmentsUrl = "http://localhost:8080/departments";
