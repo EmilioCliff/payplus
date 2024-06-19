@@ -29,6 +29,12 @@ func (server *Server) setRoutes() {
 	r.POST("/departments", server.CreateDepartment)
 	r.POST("/department/:code", server.UpdateDepartment)
 
+	r.GET("/counties", server.ListCounties)
+	r.GET("/county/:code", server.GetCounty)
+	r.DELETE("/county/:code", server.DeleteCounty)
+	r.POST("/counties", server.CreateCounty)
+	r.POST("/county/:code", server.UpdateCounty)
+
 	server.router = r
 }
 

@@ -63,30 +63,34 @@
 							</a>
 						</li>
 						<ul class="action__dropdown collapse" id="setup-action">
-							<li class="subaction" id="js-company-details-button">
+							<li class="subaction" data-table-key="companyDetails">
 								Company Details
 							</li>
-							<li class="subaction" id="js-department-button">
+							<li class="subaction" data-table-key="departmentSetup">
 								Departments Setup
 							</li>
-							<li class="subaction" id="js-section-setup-button">
+							<li class="subaction" data-table-key="sectionSetup">
 								Section Setup
 							</li>
-							<li class="subaction" id="js-job-titles-setup-button">
+							<li class="subaction" data-table-key="jobTitleSetup">
 								Job Titles
 							</li>
-							<li class="subaction" id="js-grades-setup-button">
+							<li class="subaction" data-table-key="gradeSetup">
 								Grades Setup
 							</li>
-							<li class="subaction">County Setup</li>
-							<li class="subaction">Ethnic Groups</li>
+							<li class="subaction" data-table-key="countySetup">
+								County Setup
+							</li>
+							<li class="subaction" data-table-key="ethnicGroupSetup">
+								Ethnic Groups
+							</li>
 							<li class="subaction" data-action-name="setup-constants-action">
 								<a
 									href="#setup-constants-action"
 									role="button"
 									data-bs-toggle="collapse"
 									aria-expanded="false"
-									aria-controls="setup-action"
+									aria-controls="setup-constants-action"
 								>
 									<i class="ri-arrow-right-s-line"></i>
 									Constants
@@ -112,7 +116,7 @@
 								aria-controls="setup-action"
 							>
 								<i class="ri-arrow-right-s-line chevron_right"></i>
-								Personell Data
+								Personel Data
 							</a>
 						</li>
 						<ul class="action__dropdown collapse" id="personell-data-action">
@@ -266,83 +270,87 @@
 			<!-- ===================== TABLE SECTION ===================== -->
 			<div class="color-container">
 				<div class="table-header">
-					Department Setup
+					Job Titles Setup
 					<i class="ri-close-large-line"></i>
 				</div>
 				<div class="table-data">
 					<div class="form-container">
 						<form action="#" method="POST" autocomplete="off">
 							<div class="mb-06">
-								<label class="col-25" for="code">Code</label>
+								<label class="col-25" for="job-titles-code">Code</label>
 								<input
 									type="number"
 									required
-									id="code"
-									name="code"
+									id="job-titles-code"
+									name="job-titles-code"
 									class="col-25 code"
 									value=""
 								/>
 							</div>
 							<div class="description_selector">
-								<label class="col-25" for="">Description</label>
+								<label class="col-25" for="job-titles-description"
+									>Description</label
+								>
 								<input
 									type="text"
 									required
-									id="description"
+									id="job-titles-description"
+									name="job-titles-description"
 									class="col-50 description"
 									value=""
 								/>
 							</div>
+							<div class="col-2-container">
+								<div class="description_selector col-2-field">
+									<label class="" for="job-titles-description"
+										>Lower Basic Pay Limit</label
+									>
+									<input
+										type="text"
+										required
+										id="job-titles-description"
+										name="job-titles-description"
+										class="col-25 description"
+										value=""
+									/>
+								</div>
+								<div class="description_selector col-2-field">
+									<label class="" for="job-titles-description"
+										>Upper Basic Pay Limit</label
+									>
+									<input
+										type="text"
+										required
+										id="job-titles-description"
+										name="job-titles-description"
+										class="col-25 description"
+										value=""
+									/>
+								</div>
+							</div>
 						</form>
 					</div>
-					<div class="action-container">
-						<a
-							href=""
-							class="action-btn"
-							id="js-action-btn"
-							data-js-action="add"
-							>ADD</a
-						>
-						<a
-							href=""
-							class="action-btn"
-							id="js-action-btn"
-							data-js-action="edit"
-							>EDIT</a
-						>
-						<a
-							href=""
-							class="action-btn"
-							id="js-action-btn"
-							data-js-action="save"
-							>SAVE</a
-						>
-						<a
-							href=""
-							class="action-btn"
-							id="js-action-btn"
-							data-js-action="delete"
-							>DELETE</a
-						>
-					</div>
-					<div class="table-container">
-						<div class="description_container">
-							<p class="error-info"></p>
-							<p class="table-title">Click on Record To Select</p>
+					<div class="header-overflow">
+						<div class="header-overflow-title">KCB Bank Transfer Only</div>
+						<div class="mb-06 two-col">
+							<label class="" for="company-bank-code"
+								>Company Bank Sort Code</label
+							>
+							<input
+								class="description"
+								type="text"
+								name="company-bank-code"
+								id="company-bank-code"
+							/>
 						</div>
-						<div class="table-wrapper">
-							<table class="department_table">
-								<thead>
-									<!-- <tr> -->
-									<th></th>
-									<th>Code</th>
-									<th>Description</th>
-									<!-- </tr> -->
-								</thead>
-								<tbody id="js-table-content">
-									<!-- ================ TABLE ROWS =========== -->
-								</tbody>
-							</table>
+						<div class="mb-06 two-col">
+							<label class="" for="company-bank-no">Company Account No</label>
+							<input
+								class="description"
+								type="text"
+								name="company-bank-no"
+								id="company-bank-no"
+							/>
 						</div>
 					</div>
 				</div>
@@ -354,11 +362,11 @@
 			crossorigin="anonymous"
 		></script>
 		<script src="./js/main.js"></script>
-		<script src="./js/side-bar.js"></script>
+		<script src="./js/side-bar.js" type="module"></script>
 		<script src="./js/table.js" type="module"></script>
-		<!-- <script
+		<script
 			src="./js/tables-setups/departments-setup.js"
 			type="module"
-		></script> -->
+		></script>
 	</body>
 </html>

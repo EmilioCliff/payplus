@@ -11,6 +11,11 @@ type Department struct {
 	Description string `json:"description"`
 }
 
+type County struct{
+	Code string `json:"code"`
+	Description string `json:"description"`
+}
+
 func NewStore(db *sql.DB) *Store {
 	return &Store{
 		store: db,

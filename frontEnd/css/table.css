@@ -1,19 +1,16 @@
 .table-section {
 	display: flex;
 	flex-direction: column;
-	/* background-color: #cac6c6; */
+	background-color: #cac6c6;
 	margin-left: 28%;
 	margin-top: 7.8rem;
 	max-height: 77vh;
 	width: 69%;
-	z-index: -10;
-}
-
-.color-container {
-	background-color: #cac6c6;
 	max-width: 620px;
+	z-index: -10;
+	overflow: hidden;
 }
-
+/* #cac6c6 */
 .col-25 {
 	display: inline-block;
 	width: 25%;
@@ -52,7 +49,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	/* max-width: 620px; */
+	max-width: 620px;
 }
 
 .table-header i {
@@ -157,8 +154,7 @@ textarea {
 }
 
 .table-wrapper {
-	overflow-y: auto;
-	/* flex: 1; */
+	overflow: auto;
 }
 
 .description_container p {
