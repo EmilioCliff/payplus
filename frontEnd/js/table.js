@@ -7,7 +7,7 @@ import {
 	fetchCountyData,
 } from "./tables-setups/counties-setup.js";
 
-let tableSection = document.getElementById("js-table-section");
+export let tableSection = document.getElementById("js-table-section");
 
 function displayDepartmentTable() {
 	tableSection.innerHTML = `
@@ -496,6 +496,98 @@ function displayEthincGroupEtup() {
 								<!-- ================ TABLE ROWS =========== -->
 							</tbody>
 						</table>
+					</div>
+				</div>
+			</div>
+	`;
+}
+
+function dispayIDoNO() {
+	tableSection = `
+		<div class="color-container">
+				<div class="table-header">
+					Job Titles Setup
+					<i class="ri-close-large-line"></i>
+				</div>
+				<div class="table-data">
+					<div class="form-container">
+						<form action="#" method="POST" autocomplete="off">
+							<div class="mb-06">
+								<label class="col-25" for="job-titles-code">Code</label>
+								<input
+									type="number"
+									required
+									id="job-titles-code"
+									name="job-titles-code"
+									class="col-25 code"
+									value=""
+								/>
+							</div>
+							<div class="description_selector">
+								<label class="col-25" for="job-titles-description"
+									>Description</label
+								>
+								<input
+									type="text"
+									required
+									id="job-titles-description"
+									name="job-titles-description"
+									class="col-50 description"
+									value=""
+								/>
+							</div>
+							<div class="col-2-container">
+								<div class="description_selector col-2-field">
+									<label class="" for="job-titles-description"
+										>Lower Basic Pay Limit</label
+									>
+									<input
+										type="text"
+										required
+										id="job-titles-description"
+										name="job-titles-description"
+										class="col-25 description"
+										value=""
+									/>
+								</div>
+								<div class="description_selector col-2-field">
+									<label class="" for="job-titles-description"
+										>Upper Basic Pay Limit</label
+									>
+									<input
+										type="text"
+										required
+										id="job-titles-description"
+										name="job-titles-description"
+										class="col-25 description"
+										value=""
+									/>
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="header-overflow">
+						<div class="header-overflow-title">KCB Bank Transfer Only</div>
+						<div class="mb-06 two-col">
+							<label class="" for="company-bank-code"
+								>Company Bank Sort Code</label
+							>
+							<input
+								class="description"
+								type="text"
+								name="company-bank-code"
+								id="company-bank-code"
+							/>
+						</div>
+						<div class="mb-06 two-col">
+							<label class="" for="company-bank-no">Company Account No</label>
+							<input
+								class="description"
+								type="text"
+								name="company-bank-no"
+								id="company-bank-no"
+							/>
+						</div>
 					</div>
 				</div>
 			</div>

@@ -2,7 +2,7 @@
 
 import { updateForm, setInfoMessage } from "../table.js";
 
-const listDepartmentsUrl = "http://localhost:8080/departments";
+export const listDepartmentsUrl = "http://localhost:8080/departments";
 const getDepartmentUrl = "http://localhost:8080/department";
 const deleteDepartmentUrl = "http://localhost:8080/department";
 const createDepartmentUrl = "http://localhost:8080/departments";

@@ -23,6 +23,8 @@ func (server *Server) setRoutes() {
 
 	r.Use(server.CORSMiddleware())
 
+	r.POST("/reports", server.GenerateReport)
+
 	r.GET("/departments", server.ListDepartments)
 	r.GET("/department/:code", server.GetDepartment)
 	r.DELETE("/department/:code", server.DeleteDepartment)
@@ -34,6 +36,12 @@ func (server *Server) setRoutes() {
 	r.DELETE("/county/:code", server.DeleteCounty)
 	r.POST("/counties", server.CreateCounty)
 	r.POST("/county/:code", server.UpdateCounty)
+
+	r.GET("/banks", server.ListBanks)
+	r.GET("/bank/:code", server.GetBank)
+	r.DELETE("/bank/:code", server.DeleteBank)
+	r.POST("/banks", server.CreateBank)
+	r.POST("/bank/:code", server.UpdateBank)
 
 	server.router = r
 }

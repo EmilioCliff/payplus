@@ -1,4 +1,5 @@
 import { showTable, loadActiveTable } from "./table.js";
+import { showReport } from "./report.js";
 
 document.addEventListener("DOMContentLoaded", () => {
 	let actions = document.querySelectorAll(".action");
@@ -106,6 +107,12 @@ function updateClickedSubaction(subaction) {
 	const dataTableKey = subaction.dataset.tableKey;
 	if (dataTableKey) {
 		showTable(dataTableKey);
+		return;
+	}
+
+	const dataReportKey = subaction.dataset.reportKey;
+	if (dataReportKey) {
+		showReport(dataReportKey);
 	}
 }
 

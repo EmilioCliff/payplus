@@ -18,6 +18,7 @@
 		<link rel="stylesheet" href="./css/nav.css" />
 		<link rel="stylesheet" href="./css/side-bar.css" />
 		<link rel="stylesheet" href="./css/table.css" />
+		<link rel="stylesheet" href="./css/report.css" />
 	</head>
 	<body>
 		<header>
@@ -224,6 +225,9 @@
 							</a>
 						</li>
 						<ul class="action__dropdown collapse" id="reports-action">
+							<li class="subaction" data-report-key="departmentReports">
+								Department Reports
+							</li>
 							<li class="subaction">Select Report</li>
 							<li class="subaction">Add Report</li>
 						</ul>
@@ -268,93 +272,50 @@
 		</section>
 		<section class="table-section" id="js-table-section">
 			<!-- ===================== TABLE SECTION ===================== -->
-			<div class="color-container">
-				<div class="table-header">
-					Job Titles Setup
-					<i class="ri-close-large-line"></i>
-				</div>
-				<div class="table-data">
-					<div class="form-container">
-						<form action="#" method="POST" autocomplete="off">
-							<div class="mb-06">
-								<label class="col-25" for="job-titles-code">Code</label>
-								<input
-									type="number"
-									required
-									id="job-titles-code"
-									name="job-titles-code"
-									class="col-25 code"
-									value=""
-								/>
-							</div>
-							<div class="description_selector">
-								<label class="col-25" for="job-titles-description"
-									>Description</label
-								>
-								<input
-									type="text"
-									required
-									id="job-titles-description"
-									name="job-titles-description"
-									class="col-50 description"
-									value=""
-								/>
-							</div>
-							<div class="col-2-container">
-								<div class="description_selector col-2-field">
-									<label class="" for="job-titles-description"
-										>Lower Basic Pay Limit</label
-									>
-									<input
-										type="text"
-										required
-										id="job-titles-description"
-										name="job-titles-description"
-										class="col-25 description"
-										value=""
-									/>
-								</div>
-								<div class="description_selector col-2-field">
-									<label class="" for="job-titles-description"
-										>Upper Basic Pay Limit</label
-									>
-									<input
-										type="text"
-										required
-										id="job-titles-description"
-										name="job-titles-description"
-										class="col-25 description"
-										value=""
-									/>
-								</div>
-							</div>
-						</form>
+			<!-- <div class="report-container">
+				<div class="report-heading"></div>
+				<p class="report__title">Department Reports</p>
+				<div class="report_actions">
+					<div class="report_action">
+						<i class="ri-printer-line"></i>
+						Print
 					</div>
-					<div class="header-overflow">
-						<div class="header-overflow-title">KCB Bank Transfer Only</div>
-						<div class="mb-06 two-col">
-							<label class="" for="company-bank-code"
-								>Company Bank Sort Code</label
-							>
-							<input
-								class="description"
-								type="text"
-								name="company-bank-code"
-								id="company-bank-code"
-							/>
-						</div>
-						<div class="mb-06 two-col">
-							<label class="" for="company-bank-no">Company Account No</label>
-							<input
-								class="description"
-								type="text"
-								name="company-bank-no"
-								id="company-bank-no"
-							/>
-						</div>
+					<div class="report-export">
+						<i class="ri-upload-2-line"></i>
+						Export Data Table
+						<ul class="report-export-tooltip show-toolkit">
+							<li class="report_export-action">
+								<a href="">
+									<i class="ri-file-excel-line"></i>
+									Export to PDF
+								</a>
+							</li>
+							<li class="report_export-action">
+								<a href="">
+									<i class="ri-file-pdf-2-line"> </i>
+									Export to Excel
+								</a>
+							</li>
+						</ul>
 					</div>
 				</div>
-			</div>
+				<div class="report-table-container">
+					<table class="report-table">
+						<thead class="report-header">
+							<tr>
+								<th>Code</th>
+								<th>Department</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>1</td>
+								<td>Human Resource</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div> -->
 		</section>
 		<script
 			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
@@ -368,5 +329,6 @@
 			src="./js/tables-setups/departments-setup.js"
 			type="module"
 		></script>
+		<script src="./js/report.js" type="module"></script>
 	</body>
 </html>

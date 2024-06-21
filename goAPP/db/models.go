@@ -2,6 +2,12 @@ package db
 
 import "database/sql"
 
+func NewStore(db *sql.DB) *Store {
+	return &Store{
+		store: db,
+	}
+}
+
 type Store struct{
 	store *sql.DB
 }
@@ -16,8 +22,8 @@ type County struct{
 	Description string `json:"description"`
 }
 
-func NewStore(db *sql.DB) *Store {
-	return &Store{
-		store: db,
-	}
+type Bank struct{
+	BankRef string `json:"bank_ref"`
+	Name string `json:"name"`
+	Branch string `json:"branch"`
 }
