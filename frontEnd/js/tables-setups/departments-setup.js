@@ -182,7 +182,6 @@ function addDepartment(code, department) {
 		})
 		.catch((error) => {
 			setInfoMessage([false, `Error creating departments: ${error}`]);
-			// console.error("Error creating departments:", error);
 		});
 }
 
@@ -217,7 +216,6 @@ function saveDepartment(code, department) {
 		})
 		.catch((error) => {
 			setInfoMessage([false, `Error creating departments: ${error}`]);
-			// console.error("Error editing departments:", error);
 		});
 }
 
@@ -249,6 +247,5 @@ function deleteDepartment(code) {
 		})
 		.catch((error) => {
 			setInfoMessage([false, `Error creating departments: ${error}`]);
-			// console.error("Error deleting departments:", error);
 		});
 }

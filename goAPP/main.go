@@ -28,7 +28,7 @@ func main() {
 
 	store := db.NewStore(connDB)
 	server := api.NewServer(store)
-	
+
 	log.Println("Starting server at port: ", webPort)
 	server.Start(fmt.Sprintf("0.0.0.0:%s", webPort))
 }

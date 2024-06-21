@@ -24,6 +24,7 @@ func (server *Server) setRoutes() {
 	r.Use(server.CORSMiddleware())
 
 	r.POST("/reports", server.GenerateReport)
+	r.POST("/excels", server.GenerateExcel)
 
 	r.GET("/departments", server.ListDepartments)
 	r.GET("/department/:code", server.GetDepartment)

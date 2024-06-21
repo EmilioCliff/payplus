@@ -1,7 +1,8 @@
 import { tableSection } from "./table.js";
 import { fetchDepartmentReportData } from "./reports-setups/department-list.js";
 
-export const generateReportUrl = "http://localhost:8080/reports";
+export const generateReportPDFUrl = "http://localhost:8080/reports";
+export const generateReportExcelUrl = "http://localhost:8080/excels";
 
 function addReportActionsEvents() {
 	let exportReport = document.querySelector(".report-export-in");
@@ -74,10 +75,6 @@ function displayDepartmentReport() {
 							</tr>
 						</thead>
 						<tbody id="js-report-data">
-							<tr>
-								<td>1</td>
-								<td>Human Resource</td>
-							</tr>
 						</tbody>
 					</table>
 				</div>

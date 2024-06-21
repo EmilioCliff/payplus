@@ -173,7 +173,7 @@ function saveCounty(code, county) {
 		});
 }
 
-function deleteCounty() {
+function deleteCounty(code) {
 	let deleteUrl = deleteCountyUrl + `/${code}`;
 	let body = {
 		method: "DELETE",
