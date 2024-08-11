@@ -3,10 +3,17 @@
 import { updateForm, setInfoMessage } from "../table.js";
 
 export const listDepartmentsUrl = "http://localhost:8080/departments";
-const getDepartmentUrl = "http://localhost:8080/department";
-const deleteDepartmentUrl = "http://localhost:8080/department";
-const createDepartmentUrl = "http://localhost:8080/departments";
-const updateDepartmentUrl = "http://localhost:8080/department";
+// const getDepartmentUrl = "http://localhost:8080/department";
+// const deleteDepartmentUrl = "http://localhost:8080/department";
+// const createDepartmentUrl = "http://localhost:8080/departments";
+// const updateDepartmentUrl = "http://localhost:8080/department";
+
+export const departmentsUrl =
+	"http://localhost:3000/../../frontEnd/php/departments.php";
+// const getDepartmentUrl = "../../php/departments.php";
+// const deleteDepartmentUrl = "../../php/departments.php";
+// const createDepartmentUrl = "../../php/departments.php";
+// const updateDepartmentUrl = "../../php/departments.php";
 
 let departments;
 
@@ -21,7 +28,17 @@ function findDepartment(code) {
 // entry point of departments setup, fetches data save to localStorage then
 // calls the populate table to add the table rows(departments data)
 export function fetchData() {
-	fetch(listDepartmentsUrl)
+	let sendData = {
+		action: "list",
+	};
+	const body = {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify(sendData),
+	};
+	fetch(departmentsUrl, body)
 		.then((response) => response.json())
 		.then((data) => {
 			departments = data;
@@ -29,6 +46,7 @@ export function fetchData() {
 			populateTable(data);
 		})
 		.catch((error) => {
+			console.log(error);
 			// console.error("Error fetching departments:", error);
 			setInfoMessage([false, `Error listing counties: ${error}`]);
 		});
@@ -150,6 +168,7 @@ function actionToDo(action, code, department) {
 
 function addDepartment(code, department) {
 	const data = {
+		action: "create",
 		code: code,
 		description: department,
 	};
@@ -162,7 +181,7 @@ function addDepartment(code, department) {
 		body: JSON.stringify(data),
 	};
 
-	fetch(createDepartmentUrl, body)
+	fetch(departmentsUrl, body)
 		.then((response) => {
 			if (!response.ok) {
 				response.json().then((errorData) => {
@@ -186,8 +205,9 @@ function addDepartment(code, department) {
 }
 
 function saveDepartment(code, department) {
-	const updateUrl = updateDepartmentUrl + `/${code}`;
 	const data = {
+		action: "update",
+		code: code,
 		description: department,
 	};
 
@@ -199,7 +219,7 @@ function saveDepartment(code, department) {
 		body: JSON.stringify(data),
 	};
 
-	fetch(updateUrl, body)
+	fetch(departmentsUrl, body)
 		.then((response) => {
 			if (!response.ok) {
 				response.json().then((errorData) => {
@@ -220,14 +240,18 @@ function saveDepartment(code, department) {
 }
 
 function deleteDepartment(code) {
-	let deleteUrl = deleteDepartmentUrl + `/${code}`;
+	const data = {
+		action: "delete",
+		code: code,
+	};
 	let body = {
-		method: "DELETE",
+		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
 		},
+		body: JSON.stringify(data),
 	};
-	fetch(deleteUrl, body)
+	fetch(departmentsUrl, body)
 		.then((response) => {
 			if (!response.ok) {
 				response.json().then((errorData) => {
@@ -246,6 +270,6 @@ function deleteDepartment(code) {
 			fetchData();
 		})
 		.catch((error) => {
-			setInfoMessage([false, `Error creating departments: ${error}`]);
+			setInfoMessage([false, `Error deleting departments: ${error}`]);
 		});
 }
