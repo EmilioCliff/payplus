@@ -195,9 +195,9 @@ function addDepartment(code, department) {
 			return response.json();
 		})
 		.then(() => {
-			setInfoMessage([true, "Department Added Successful"]);
 			updateForm("", "");
 			fetchData();
+			setInfoMessage([true, "Department Added Successful"]);
 		})
 		.catch((error) => {
 			setInfoMessage([false, `Error creating departments: ${error}`]);
@@ -230,9 +230,9 @@ function saveDepartment(code, department) {
 			return response.json();
 		})
 		.then(() => {
-			setInfoMessage([true, "Department Edited Successful"]);
 			updateForm("", "");
 			fetchData();
+			setInfoMessage([true, "Department Edited Successful"]);
 		})
 		.catch((error) => {
 			setInfoMessage([false, `Error creating departments: ${error}`]);

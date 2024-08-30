@@ -93,3 +93,5 @@ export function showReport(report) {
 			break;
 	}
 }
+
+// href="http://localhost:3000/../../frontEnd/php/reports/pdf/departments-list.php" download
