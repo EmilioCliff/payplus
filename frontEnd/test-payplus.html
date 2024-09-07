@@ -19,6 +19,7 @@
 		<link rel="stylesheet" href="./css/side-bar.css" />
 		<link rel="stylesheet" href="./css/table.css" />
 		<link rel="stylesheet" href="./css/report.css" />
+		<link rel="stylesheet" href="./css/list-setup.css" />
 	</head>
 	<body>
 		<header>
@@ -121,7 +122,9 @@
 							</a>
 						</li>
 						<ul class="action__dropdown collapse" id="personell-data-action">
-							<li class="subaction">Employee Details</li>
+							<li class="subaction" data-table-key="employeeDetailsSetup">
+								Employee Details
+							</li>
 							<li class="subaction">Employee Payroll Details</li>
 						</ul>
 						<li class="action" data-action-name="entries-action">
@@ -270,7 +273,7 @@
 				</div>
 			</div>
 		</section>
-		<section class="table-section" id="js-table-section">
+		<section class="table-section list-table__section" id="js-table-section">
 			<!-- ===================== TABLE SECTION ===================== -->
 		</section>
 		<script

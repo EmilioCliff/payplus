@@ -96,15 +96,71 @@ export function addDepartmentActionEvents() {
 	actionBtns.forEach((action) => {
 		action.addEventListener("click", (e) => {
 			e.preventDefault();
-			const code = String(document.getElementById("code").value);
-			if (!code) {
-				setInfoMessage([false, "code cannot be empty"]);
+			let code = "";
+			if (action.dataset.jsAction === "add") {
+				// check if codes exist
+				let exist = findDepartment(
+					String(document.getElementById("code").value)
+				);
+				if (exist) {
+					setInfoMessage([false, "code already exists"]);
+					return;
+				}
+				let codes = extractCodes(departments);
+				code = autoIncrementCode(codes);
+			} else if (action.dataset.jsAction === "clear") {
+				document.getElementById("departmentForm").reset();
+				let active = document.querySelector(".show-icon");
+				if (active) {
+					active.classList.remove("show-icon");
+					active.style.visibility = "hidden";
+				}
 				return;
+			} else {
+				code = String(document.getElementById("code").value);
+				if (!code) {
+					setInfoMessage([false, "code cannot be empty"]);
+					return;
+				}
 			}
 			const department = document.getElementById("description").value;
+			if (!department) {
+				setInfoMessage([false, "description cannot be empty"]);
+				return;
+			}
 			actionToDo(action.dataset.jsAction, code, department);
 		});
 	});
+}
+
+export function extractCodes(departments) {
+	return departments.map((department) => department.code);
+}
+
+export function getHighestCode(codes) {
+	let highest = 0;
+
+	codes.forEach((code) => {
+		let numericPart = code.match(/\d+/);
+
+		if (numericPart) {
+			let num = parseInt(numericPart[0], 10);
+			if (num > highest) {
+				highest = num;
+			}
+		}
+	});
+
+	return highest;
+}
+
+export function autoIncrementCode(codes) {
+	let highestCode = getHighestCode(codes);
+	let newCode = highestCode + 1;
+	let maxLength = Math.max(...codes.map((code) => code.length));
+	let incrementedCode = newCode.toString().padStart(maxLength, "0");
+
+	return incrementedCode;
 }
 
 // switch from the actions passed checking for required data for each action and setting
@@ -160,6 +216,15 @@ function actionToDo(action, code, department) {
 
 			setInfoMessage([false, "Code does not exists"]);
 			break;
+
+		// case "clear":
+		// 	document.getElementById("departmentForm").reset();
+		// 	let active = document.querySelector(".show-icon");
+		// 	if (active) {
+		// 		active.classList.remove("show-icon");
+		// 		active.style.visibility = "hidden";
+		// 	}
+		// 	break;
 
 		default:
 			setInfoMessage([false, "do not recognize action"]);

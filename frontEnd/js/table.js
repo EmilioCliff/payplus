@@ -6,6 +6,14 @@ import {
 	addCountyActionEvents,
 	fetchCountyData,
 } from "./tables-setups/counties-setup.js";
+import {
+	fetchPositionsData,
+	addPositionsActionEvents,
+} from "./tables-setups/positions.js";
+import {
+	fetchEmployeesDetailsData,
+	addEmployeeDetailsActionEvents,
+} from "./tables-setups/employee-details-setup.js";
 
 export let tableSection = document.getElementById("js-table-section");
 
@@ -17,7 +25,7 @@ function displayDepartmentTable() {
         </div>
 			<div class="table-data">
 				<div class="form-container">
-					<form action="#" method="POST" autocomplete="off">
+					<form action="#" id="departmentForm" method="POST" autocomplete="off">
 						<div class="mb-06">
 							<label class="col-25" for="code">Code</label>
 							<input
@@ -27,6 +35,7 @@ function displayDepartmentTable() {
 								name="code"
 								class="col-25 code"
 								value=""
+								disabled
 							/>
 						</div>
 						<div class="description_selector">
@@ -46,6 +55,7 @@ function displayDepartmentTable() {
 					<a href="" class="action-btn" id="js-action-btn" data-js-action="edit">EDIT</a>
 					<a href="" class="action-btn" id="js-action-btn" data-js-action="save">SAVE</a>
 					<a href="" class="action-btn" id="js-action-btn" data-js-action="delete">DELETE</a>
+					<a href="" class="action-btn" id="js-action-btn" data-js-action="clear">CLEAR</a>
 				</div>
 				<div class="table-container">
 					<div class="description_container">
@@ -229,16 +239,17 @@ function displayJobTitlesSetup() {
 			</div>
 			<div class="table-data">
 				<div class="form-container">
-					<form action="#" method="POST" autocomplete="off">
+					<form action="#" id="positionForm" method="POST" autocomplete="off">
 						<div class="mb-06">
 							<label class="col-25" for="job-titles-code">Code</label>
 							<input
 								type="number"
 								required
-								id="job-titles-code"
-								name="job-titles-code"
+								id="code"
+								name="code"
 								class="col-25 code"
 								value=""
+								disabled
 							/>
 						</div>
 						<div class="description_selector">
@@ -248,8 +259,8 @@ function displayJobTitlesSetup() {
 							<input
 								type="text"
 								required
-								id="job-titles-description"
-								name="job-titles-description"
+								id="description"
+								name="description"
 								class="col-50 description"
 								value=""
 							/>
@@ -257,10 +268,11 @@ function displayJobTitlesSetup() {
 					</form>
 				</div>
 				<div class="action-container">
-					<a href="" class="action-btn" data-js-action="add">ADD</a>
-					<a href="" class="action-btn" data-js-action="edit">EDIT</a>
-					<a href="" class="action-btn" data-js-action="save">SAVE</a>
-					<a href="" class="action-btn" data-js-action="delete">DELETE</a>
+					<a href="" class="action-btn" id="js-action-btn" data-js-action="add">ADD</a>
+					<a href="" class="action-btn" id="js-action-btn" data-js-action="edit">EDIT</a>
+					<a href="" class="action-btn" id="js-action-btn" data-js-action="save">SAVE</a>
+					<a href="" class="action-btn" id="js-action-btn" data-js-action="delete">DELETE</a>
+					<a href="" class="action-btn" id="js-action-btn" data-js-action="clear">CLEAR</a>
 				</div>
 				<div class="table-container">
 					<div class="description_container">
@@ -283,6 +295,8 @@ function displayJobTitlesSetup() {
 			</div>
         </div>
     `;
+	addPositionsActionEvents();
+	fetchPositionsData();
 }
 
 function displayGradesSetup() {
@@ -502,6 +516,138 @@ function displayEthincGroupEtup() {
 	`;
 }
 
+function displayEmployeeDetails() {
+	tableSection.innerHTML = `
+	<div class="list-table__section" style="background-color: white;" >
+		<div class="table-header list-header">Employee Details</div>
+			<div class="list-setup">
+				<div class="list-headings">
+					<div class="list-actions">
+						<div class="report_action" id="add-employee__details">Add New</div>
+						<div class="report_action">Import</div>
+					</div>
+					<div class="list-actions">
+						<div class="list-action-search">
+							<form action="">
+								<label for="search">Search By:</label>
+								<input
+									name="search"
+									id="search"
+									type="text"
+									placeholder="Employee Name Or Employee Code"
+								/>
+								<button type="submit" class="search-submit">
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										viewBox="0 0 24 24"
+										fill="currentColor"
+									>
+										<path
+											d="M18.031 16.6168L22.3137 20.8995L20.8995 22.3137L16.6168 18.031C15.0769 19.263 13.124 20 11 20C6.032 20 2 15.968 2 11C2 6.032 6.032 2 11 2C15.968 2 20 6.032 20 11C20 13.124 19.263 15.0769 18.031 16.6168ZM16.0247 15.8748C17.2475 14.6146 18 12.8956 18 11C18 7.1325 14.8675 4 11 4C7.1325 4 4 7.1325 4 11C4 14.8675 7.1325 18 11 18C12.8956 18 14.6146 17.2475 15.8748 16.0247L16.0247 15.8748Z"
+										></path>
+									</svg>
+								</button>
+							</form>
+						</div>
+					</div>
+				</div>
+				<p class="error-info" style="margin-left: 1rem"></p>
+				<div class="list-table">
+					<table class="list_table">
+						<thead>
+							<th>Emply Code</th>
+							<th>Name</th>
+							<th>Department</th>
+							<th>Position</th>
+							<th>Emplymnt Date</th>
+							<th>Action</th>
+						</thead>
+						<tbody id="js-table-content">
+							
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="overflow-container"></div>
+			<div class="overlay" id="add-employee__overlay">
+				<div class="list-modal">
+					<div class="title-list-modal">
+						<div class="close-btn" id="close-btn__overlay">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 24 24"
+								fill="currentColor"
+							>
+								<path
+									d="M10.5859 12L2.79297 4.20706L4.20718 2.79285L12.0001 10.5857L19.793 2.79285L21.2072 4.20706L13.4143 12L21.2072 19.7928L19.793 21.2071L12.0001 13.4142L4.20718 21.2071L2.79297 19.7928L10.5859 12Z"
+								></path>
+							</svg>
+						</div>
+					</div>
+					<p class="error-info" style="margin-left: 1rem"></p>
+					<div class="content-employees">
+						<div class="image-container">
+							<img src="./images/user-profile.jpg" alt="" />
+							<div>
+								<p>Browse</p>
+								<p>Clear</p>
+							</div>
+						</div>
+						<form
+							id="employeeForm"
+						>
+							<input type="hidden" name="action" value="create" id="" />
+							<div>
+								<label for="code">Employee Code:<sup>&#42;</sup></label>
+								<input type="text" name="code" required />
+							</div>
+							<div>
+								<label for="first_name">First Name:<sup>&#42;</sup></label>
+								<input type="text" name="first_name" required />
+							</div>
+							<div>
+								<label for="middle_name">Middle Name:<sup>&#42;</sup></label>
+								<input type="text" name="middle_name" required />
+							</div>
+							<div>
+								<label for="last_name">Last Name:<sup>&#42;</sup></label>
+								<input
+									type="text"
+									name="last_name"
+									class="some-text"
+									required
+								/>
+							</div>
+							<div>
+								<label for="department">Department:<sup>&#42;</sup></label>
+								<select name="department"  id="select-administrations" required>
+
+								</select>
+							</div>
+							<div>
+								<label for="position">Position:<sup>&#42;</sup></label>
+								<select name="position" id="select-positions" required>
+
+								</select>
+							</div>
+							<div>
+								<label for="date_of_employment">Date of Employment</label>
+								<input type="date" name="date_of_employment" id="date_of_employment" required />
+							</div>
+							<div class="form-submit-btns">
+								<button type="button" class="form-submit" id="employee__add-btn">SAVE</button>
+								<button type="button" class="form-submit" id="employee__clear-btn" >CLEAR</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			</div>
+	`;
+	fetchEmployeesDetailsData();
+	addEmployeeDetailsActionEvents();
+}
+
 function dispayIDoNO() {
 	tableSection = `
 		<div class="color-container">
@@ -627,6 +773,10 @@ export function showTable(table) {
 
 		case "ethnicGroupSetup":
 			displayEthincGroupEtup();
+			break;
+
+		case "employeeDetailsSetup":
+			displayEmployeeDetails();
 			break;
 	}
 }

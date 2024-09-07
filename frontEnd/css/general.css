@@ -50,14 +50,11 @@ body {
 
 html {
 	scroll-behavior: smooth;
-	/* padding-bottom: 1000px; */
-	/* overflow-x: hidden; */
 }
 
 body {
 	background-color: var(--body-color);
 	color: var(--text-color);
-	/* padding-bottom: 1000px; */
 }
 
 input,
