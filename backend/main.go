@@ -7,10 +7,16 @@ import (
 	"os/signal"
 	"time"
 
+	"github.com/joho/godotenv"
 	_ "github.com/microsoft/go-mssqldb"
 )
 
 func main() {
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatal("Error loading .env file")
+	}
+
 	// set up channels for graceful shutdown
 	ctx, cancel := signal.NotifyContext(context.Background(), os.Interrupt, os.Kill)
 	defer cancel()

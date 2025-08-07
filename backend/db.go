@@ -5,13 +5,8 @@ import (
 	"database/sql"
 	"fmt"
 	"log"
+	"os"
 )
-
-var server = "payplus.database.windows.net"
-var port = 1433
-var user = "backend"
-var password = "fkM*p49bqrDKc*f"
-var database = "test-payplus"
 
 type DB struct {
 	store *sql.DB
@@ -19,8 +14,8 @@ type DB struct {
 
 func NewDB() *DB {
 	db := &DB{}
-	connString := fmt.Sprintf("server=%s;user id=%s;password=%s;port=%d;database=%s;",
-		server, user, password, port, database)
+	connString := fmt.Sprintf("server=%s;user id=%s;password=%s;port=%v;database=%s;",
+		os.Getenv("SERVER"), os.Getenv("DB_USER"), os.Getenv("DB_PASSWORD"), os.Getenv("PORT"), os.Getenv("DB_NAME"))
 	var err error
 
 	// Create connection pool
